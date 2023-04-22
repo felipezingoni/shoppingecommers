@@ -1,0 +1,103 @@
+// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
+import "@hotwired/turbo-rails"
+import "controllers"
+
+console.log("hola")
+gsap.registerPlugin(ScrollTrigger);
+// gsap.defaults({ease:"none", duration:2});
+
+const container = document.querySelector(".container");
+const sections = gsap.utils.toArray(".container section");
+const texts = gsap.utils.toArray(".anim");
+const mask = document.querySelector(".mask");
+const myText = new SplitType('#my-texts')
+// gsap.from('.char', {
+//   opacity: 0,
+//   duration: 5,
+//   ease: "elastic",
+//   stagger: 0.1
+// })
+gsap.from('myText', {
+  delay: 0,
+  duration: 0,
+  opacity:0
+})
+
+gsap.to('.char', {
+  y: 0,
+  stagger:0.05,
+  delay:0.2,
+  duration: .2,
+  ease: "elastic"
+})
+
+// mostrar el loader
+document.getElementById("my-texts").style.display = "block";
+console.log(document.getElementById("my-texts"))
+
+// detener el loader cuando se carga la página
+setTimeout(function () {
+  document.getElementById("my-texts").style.display = "none";
+}, 3000);
+
+
+
+
+let scrollTween = gsap.to(sections, {
+  xPercent: -100 * (sections.length - 1),
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".container",
+    pin: true,
+    scrub: 1,
+    end: "+=3000",
+    snap: 1 / (sections.length - 1),
+    markers: true,
+  }
+});
+console.log(1 / (sections.length - 1))
+
+//Progress bar animation
+
+gsap.to(mask, {
+  width: "100%",
+  scrollTrigger: {
+    trigger: ".wrapper",
+    start: "top left",
+    scrub: 1
+  }
+});
+
+// whizz around the sections
+sections.forEach((section) => {
+  // grab the scoped text
+  let text = section.querySelectorAll(".anim");
+
+  // bump out if there's no items to animate
+  if (text.length === 0) return
+
+  // do a little stagger
+  gsap.from(text, {
+    y: -130,
+    opacity: 0,
+    duration: 2,
+    ease: "elastic",
+    stagger: 0.1,
+    scrollTrigger: {
+      trigger: section,
+      containerAnimation: scrollTween,
+      start: "left center",
+      markers: true
+    }
+  });
+});
+
+
+gsap.to(".red", {
+  xPercent: 100,
+  duration: 5,
+  end: "+=3000",
+  scrollTrigger: {
+    trigger: ".red"
+  }
+})

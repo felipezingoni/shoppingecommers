@@ -1,0 +1,23 @@
+@import "components/home";
+
+body {
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Futura Bold";
+  src: url('fonts/Futura Condensed Bold.otf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Helvetica Neue Medium";
+  src: url('fonts/Helvetica Neue Medium.otf');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Helvetica Neue Extended";
+  src: url('fonts/Helvetica Neue Medium Extended.otf');
+  font-weight: normal;
+}

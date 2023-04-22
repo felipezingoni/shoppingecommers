@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@200;400;700&display=swap');
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Poppins';
+}
+
+
+
+.wrapper {
+  overflow-x: hidden;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+svg {
+  position: absolute;
+  top: 12em;
+  left: 10vw;
+  width: 50vw;
+  z-index: 9;
+  .mask {
+    width: 0;
+    z-index: 9;
+  }
+}
+
+.container {
+  display: flex;
+  width: 300vw;
+
+  .col {
+    display: flex;
+    gap: 3em;
+
+    p {
+      font-size: .8rem;
+    }
+  }
+
+  section {
+    width: 100vw;
+    padding: 20vw 10vw;
+
+    h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    p {
+      font-size: 1.2rem;
+      width: 50vw;
+    }
+
+    ul {
+      list-style-type: none;
+      display: flex;
+      gap: 3em;
+      width: 100%;
+      height: 300px;
+      padding: 0;
+
+      li {
+        background: white;
+        border-radius: .3em;
+        flex-grow: 1;
+      }
+    }
+
+  }
+}
+
+section {
+  height: 100vh;
+
+}
+
+.nike {
+  font-family: "Futura Bold";
+}
+
+// .img-nike {
+//   background-image: linear-gradient(to bottom, #8b8b8b7e, #8b8b8b98), url(https://images.unsplash.com/photo-1509983165097-0c31a863e3f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)
+// }
+
+
+.perri {
+      display: grid;
+      place-content: center;
+        position: absolute;
+        /* top: 0; */
+        /* left: 0; */
+        height: 100%;
+        width: 100%;
+        background-color: white;
+}
+
+// #my-texts {
+//   z-index: 2;
+//   background-color: white;
+//   height: 100%;
+//   width: 100%;
+// }
+h1 {
+  font-size: 7rem;
+  text-transform: uppercase;
+  font-family: "Futura Bold";
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+}
+
+.char {
+  transform: translateY(115px);
+  transition: transform .5s;
+}
